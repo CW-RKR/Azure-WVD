@@ -151,7 +151,7 @@ foreach ($App in $RemoteApps) {
         -TenantName $WVDTenantName `
         -HostPoolName $WVDHostPoolName `
         -AppGroupName $App.AppGroupName `
-            | ? FilePath -Match $App.FilePath `
+            | Where-Object FilePath -Match $App.FilePath `
             -OutVariable NewApp
            
     New-RdsRemoteApp `
@@ -190,8 +190,8 @@ Function Remove-AzureWVD {
 
  .Example    
      # Clean up WVD
-    Remove-AzureWVD `        
-        -WVDTenantName MSAA-Tenant `        
+    Remove-AzureWVD `
+        -WVDTenantName MSAA-Tenant `
         -WVDHostPoolName MSAA-HostPool
 
 #>
@@ -226,7 +226,7 @@ Process {
     $AppGroup = Get-RdsAppGroup `
         -TenantName $WVDTenantName `
         -HostPoolName $WVDHostPoolName `
-        | ? -Property AppGroupName `
+        | Where-Object -Property AppGroupName `
             -NE 'Desktop Application Group' `
             -ErrorAction SilentlyContinue
     foreach ($APG in $AppGroup) {        

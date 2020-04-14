@@ -27,7 +27,7 @@ Get-RdsDiagnosticActivities `
     -StartTime 8/10/2019 `
     -EndTime 8/11/2019 `
     | Sort-Object -Property ActivityType, UserName `
-    |ft -AutoSize
+    |Format-Table -AutoSize
 
 Get-RdsDiagnosticActivities `
     -TenantName $TenantName `
