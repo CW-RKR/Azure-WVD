@@ -38,7 +38,7 @@
     Enter the name of the App Group for your Remote Applications
 
  .Example    
-     # Create new Windows Virtual Desktop Deployment-
+     # Create new Windows Virtual Desktop Deployment
     New-AzureWVDPrep `
         -AADTenantID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx `
         -SubscriptionID 00000000-0000-0000-0000-000000000000 `
